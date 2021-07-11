@@ -13,14 +13,7 @@ const Stack = createStackNavigator();
 
 export function SettingsRoute() {
   return (
-    <Stack.Navigator
-      headerMode="screen"
-      screenOptions={{
-        headerTintColor: theme.colors.primary,
-        headerStyle: { backgroundColor: theme.colors.secondary100 },
-        headerLeft: () => <BackButton />,
-      }}
-    >
+    <Stack.Navigator headerMode="none">
       <Stack.Screen
         name="Configurations"
         component={Configurations}
