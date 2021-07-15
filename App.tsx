@@ -9,6 +9,8 @@ import {
   useFonts,
 } from "@expo-google-fonts/lato";
 import AppLoading from "expo-app-loading";
+import { Provider } from "react-redux";
+import configureStore from "src/Redux/store";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,9 +22,11 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <ThemeProvider theme={theme}>
-      <StatusBar style="light" backgroundColor={theme.colors.heading} />
-      <Routes />
-    </ThemeProvider>
+    <Provider store={configureStore}>
+      <ThemeProvider theme={theme}>
+        <StatusBar style="light" backgroundColor={theme.colors.heading} />
+        <Routes />
+      </ThemeProvider>
+    </Provider>
   );
 }

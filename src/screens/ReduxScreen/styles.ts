@@ -1,5 +1,11 @@
 import styled, { css } from "styled-components/native";
 
+export const Content = styled.View`
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`;
+
 export const Button = styled.TouchableOpacity`
   ${({ theme }) => css`
     background-color: ${theme.colors.primary};
