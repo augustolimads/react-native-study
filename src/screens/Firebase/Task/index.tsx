@@ -1,31 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { database } from "src/config/firebaseconfig";
+import firebase from "src/config/firebaseconfig";
 import { Container } from "src/components/Container";
 
 import * as S from "./styles";
 
-export function Task() {
+export function Task({ route }) {
+  const { idUser } = route.params;
   const navigation = useNavigation();
+  const database = firebase.firestore();
   const [task, setTask] = useState([]);
 
   function navigateNewTask() {
-    navigation.navigate("NewTask");
+    navigation.navigate("NewTask", { idUser });
   }
 
   function deleteTask(id) {
-    database.collection("tasks").doc(id).delete();
+    database.collection(idUser).doc(id).delete();
   }
 
   function navigateDetails(item) {
     navigation.navigate("Details", {
+      idUser,
       id: item.id,
       description: item.description,
     });
   }
 
   useEffect(() => {
-    database.collection("tasks").onSnapshot((query) => {
+    database.collection(idUser).onSnapshot((query) => {
       const list = [];
       query.forEach((doc) => {
         list.push({ ...doc.data(), id: doc.id });

@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { database } from "src/config/firebaseconfig";
+import firebase from "src/config/firebaseconfig";
 import { Container } from "src/components/Container";
 import { Spacer } from "src/components/Spacer";
+import { Input } from "src/components/Input";
 import * as S from "./styles";
 
 export function Details({ route }) {
+  const { idUser } = route.params;
+
   const navigation = useNavigation();
+  const database = firebase.firestore();
   const idTask = route.params.id;
   const [description, setDescription] = useState(route.params.description);
 
   function editTask(description, id) {
-    database.collection("tasks").doc(id).update({
+    database.collection(idUser).doc(id).update({
       description,
     });
 
@@ -19,9 +23,9 @@ export function Details({ route }) {
   }
 
   return (
-    <Container>
+    <Container hasKeyboard>
       <S.Text>Description</S.Text>
-      <S.Input
+      <Input
         placeholder="Ex: estudar javascript"
         onChangeText={setDescription}
         value={description}

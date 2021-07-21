@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export const Text = styled.Text`
   font-size: 16px;
@@ -37,8 +37,8 @@ export const DeleteButton = styled.TouchableOpacity`
   `}
 `;
 
-export const Icon = styled(FontAwesome).attrs({
-  name: "star",
+export const Icon = styled(FontAwesome5).attrs({
+  name: "trash",
 })`
   ${({ theme }) => css`
     color: ${theme.colors.primary}
