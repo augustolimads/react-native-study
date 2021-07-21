@@ -5,7 +5,7 @@ import * as S from "./styles";
 export function Template() {
   return (
     <Container>
-      <S.Container />
+      <S.Text>Template</S.Text>
     </Container>
   );
 }
