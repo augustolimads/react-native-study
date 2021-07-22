@@ -4,8 +4,9 @@ import firebase from "src/config/firebaseconfig";
 import { Container } from "src/components/Container";
 import { Spacer } from "src/components/Spacer";
 import { Input } from "src/components/Input";
-import * as S from "./styles";
 import { Button } from "src/components/Button";
+import { Text } from "src/components/Text";
+import * as S from "./styles";
 
 export function Details({ route }) {
   const { idUser } = route.params;
@@ -25,7 +26,11 @@ export function Details({ route }) {
 
   return (
     <Container hasKeyboard>
-      <S.Text>Description</S.Text>
+      <S.Wrapper>
+        <Text h3 color="primary" isBold>
+          Description
+        </Text>
+      </S.Wrapper>
       <Input
         placeholder="Ex: estudar javascript"
         onChangeText={setDescription}

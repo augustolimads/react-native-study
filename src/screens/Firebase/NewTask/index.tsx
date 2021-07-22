@@ -5,6 +5,8 @@ import { Container } from "src/components/Container";
 import { Spacer } from "src/components/Spacer";
 import * as S from "./styles";
 import { Input } from "src/components/Input";
+import { Text } from "src/components/Text";
+import { Button } from "src/components/Button";
 
 export function NewTask({ route }) {
   const { idUser } = route.params;
@@ -25,16 +27,18 @@ export function NewTask({ route }) {
 
   return (
     <Container hasKeyboard>
-      <S.Text>Description</S.Text>
+      <S.Wrapper>
+        <Text h4 color="primary" isBold>
+          Description
+        </Text>
+      </S.Wrapper>
       <Input
         placeholder="Ex: estudar javascript"
         onChangeText={setDescription}
         value={description}
       />
       <Spacer flex={1} />
-      <S.Button>
-        <S.ContrastText onPress={addTask}>Save</S.ContrastText>
-      </S.Button>
+      <Button label="Save" onPress={addTask} />
     </Container>
   );
 }

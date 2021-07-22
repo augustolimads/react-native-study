@@ -27,7 +27,9 @@ export function Text({
   h1,
   h2,
   h3,
+  h4,
   caption,
+  ...rest
 }: TextProps) {
   return (
     <S.Text
@@ -36,7 +38,9 @@ export function Text({
       h1={h1}
       h2={h2}
       h3={h3}
+      h4={h4}
       caption={caption}
+      {...rest}
     >
       {children}
     </S.Text>

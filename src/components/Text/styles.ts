@@ -6,8 +6,8 @@ const sizes = {
   h2: "48px",
   h3: "32px",
   h4: "24px",
-  body: "18px",
-  caption: "14px",
+  body: "20px",
+  caption: "16px",
 };
 
 function fontSize(h1, h2, h3, h4, caption) {

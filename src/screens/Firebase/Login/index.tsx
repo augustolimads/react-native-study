@@ -47,9 +47,9 @@ export function Login() {
     <Container hasKeyboard>
       <Spacer size={24} />
       <S.Center>
-        <H1 color="primary" isBold>
+        <Text h1 color="primary" isBold>
           Tasks
-        </H1>
+        </Text>
       </S.Center>
       <Input
         placeholder="enter your email"
@@ -64,7 +64,9 @@ export function Login() {
       />
       {errorLogin ? (
         <S.Wrapper>
-          <Caption color="primary">Invalid e-mail or password</Caption>
+          <Text caption color="primary">
+            Invalid e-mail or password
+          </Text>
         </S.Wrapper>
       ) : (
         <S.Container />

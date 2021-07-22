@@ -1,9 +1,6 @@
-import styled, { css } from "styled-components/native";
+import styled from "styled-components/native";
 
-export const Text = styled.Text`
+export const Wrapper = styled.View`
   margin-top: 24px;
   margin-left: 12px;
-  font-size: 20px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.primary};
 `;

@@ -41,9 +41,9 @@ export function NewUser() {
     <Container hasKeyboard>
       <Spacer size={24} />
       <S.Center>
-        <H2 color="primary" isBold>
+        <Text h4 color="primary" isBold>
           Create a Task Account
-        </H2>
+        </Text>
       </S.Center>
       <Input
         placeholder="enter your email"
@@ -58,6 +58,9 @@ export function NewUser() {
       />
       {errorLogin ? (
         <S.Wrapper>
+          <Text caption color="primary">
+            Invalid e-mail or password
+          </Text>
           <Caption color="primary">Invalid e-mail or password</Caption>
         </S.Wrapper>
       ) : (

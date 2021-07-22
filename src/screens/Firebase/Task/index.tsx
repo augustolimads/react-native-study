@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import firebase from "src/config/firebaseconfig";
 import { Container } from "src/components/Container";
+import { Text } from "src/components/Text";
 
 import * as S from "./styles";
-import { Text } from "src/components/Text";
+import { Button } from "src/components/Button";
 
 export function Task({ route }) {
   const { idUser } = route.params;
@@ -51,16 +52,14 @@ export function Task({ route }) {
               <S.DeleteButton onPress={() => deleteTask(item.id)}>
                 <S.Icon />
               </S.DeleteButton>
-              <S.Text onPress={() => navigateDetails(item)}>
+              <Text onPress={() => navigateDetails(item)}>
                 {item.description}
-              </S.Text>
+              </Text>
             </S.Card>
           );
         }}
       />
-      <S.Button onPress={navigateNewTask}>
-        <S.TextContrast>+</S.TextContrast>
-      </S.Button>
+      <Button onPress={navigateNewTask} label="+" />
     </Container>
   );
 }
