@@ -4,6 +4,7 @@ import firebase from "src/config/firebaseconfig";
 import { Container } from "src/components/Container";
 
 import * as S from "./styles";
+import { Text } from "src/components/Text";
 
 export function Task({ route }) {
   const { idUser } = route.params;

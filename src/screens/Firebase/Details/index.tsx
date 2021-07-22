@@ -5,6 +5,7 @@ import { Container } from "src/components/Container";
 import { Spacer } from "src/components/Spacer";
 import { Input } from "src/components/Input";
 import * as S from "./styles";
+import { Button } from "src/components/Button";
 
 export function Details({ route }) {
   const { idUser } = route.params;
@@ -31,11 +32,7 @@ export function Details({ route }) {
         value={description}
       />
       <Spacer flex={1} />
-      <S.Button>
-        <S.ContrastText onPress={() => editTask(description, idTask)}>
-          Save
-        </S.ContrastText>
-      </S.Button>
+      <Button label="Save" onPress={() => editTask(description, idTask)} />
     </Container>
   );
 }
