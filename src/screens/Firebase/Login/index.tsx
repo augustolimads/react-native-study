@@ -8,7 +8,8 @@ import { Link } from "src/components/Link";
 import { Spacer } from "src/components/Spacer";
 import { Text } from "src/components/Text";
 import * as S from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { theme } from "src/theme";
 
 export function Login() {
   const navigation = useNavigation();
@@ -46,9 +47,13 @@ export function Login() {
     });
   }, []);
 
-  useEffect(() => {
-    setErrorLogin(false);
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      setErrorLogin(false);
+      setEmail("");
+      setPassword("");
+    }, [])
+  );
 
   return (
     <Container hasKeyboard>
@@ -89,11 +94,17 @@ export function Login() {
       {email === "" || password === "" ? (
         <Button
           label="Login"
-          disable={true || loading === true}
           isLoading={loading}
+          disabled={true || loading === true}
+          color={theme.colors.highlight}
         />
       ) : (
-        <Button label="Login" onPress={loginFirebase} isLoading={loading} />
+        <Button
+          label="Login"
+          onPress={loginFirebase}
+          isLoading={loading}
+          color={loading ? theme.colors.highlight : theme.colors.primary}
+        />
       )}
     </Container>
   );

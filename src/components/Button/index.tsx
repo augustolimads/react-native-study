@@ -7,13 +7,14 @@ import * as S from "./styles";
 type ButtonProps = PressableProps & {
   label: string;
   isLoading?: boolean;
+  color?: string;
 };
 
-export function Button({ label, isLoading, ...rest }: ButtonProps) {
+export function Button({ label, color, isLoading, ...rest }: ButtonProps) {
   return (
-    <S.Button disabled={isLoading} {...rest}>
+    <S.Button disabled={isLoading} color={color} {...rest}>
       {isLoading ? (
-        <ActivityIndicator color={theme.colors.highlight} />
+        <ActivityIndicator color={theme.colors.background} size={32} />
       ) : (
         <S.ContrastText>{label}</S.ContrastText>
       )}
