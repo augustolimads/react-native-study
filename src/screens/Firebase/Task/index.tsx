@@ -52,9 +52,9 @@ export function Task({ route }) {
               <S.DeleteButton onPress={() => deleteTask(item.id)}>
                 <S.Icon />
               </S.DeleteButton>
-              <Text onPress={() => navigateDetails(item)}>
-                {item.description}
-              </Text>
+              <S.CardButton onPress={() => navigateDetails(item)}>
+                <Text>{item.description}</Text>
+              </S.CardButton>
             </S.Card>
           );
         }}

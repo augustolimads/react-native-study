@@ -7,4 +7,5 @@ export const TextInput = styled.TextInput`
   border-bottom-width: 2px;
   padding: 8px;
   border-color: ${({ theme }) => theme.colors.primary};
+  font-size: 20px;
 `;

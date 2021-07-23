@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components/native";
 
-export const Button = styled.TouchableOpacity`
+export const Button = styled.Pressable`
   margin-top: 16px;
   background-color: ${({ theme }) => theme.colors.primary};
   padding: 16px;

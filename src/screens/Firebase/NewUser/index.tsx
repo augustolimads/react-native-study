@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import firebase from "src/config/firebaseconfig";
 
 import { Button } from "src/components/Button";
-import { Caption } from "src/components/Caption";
 import { Container } from "src/components/Container";
 import { Input } from "src/components/Input";
 import { Link } from "src/components/Link";
@@ -10,7 +9,6 @@ import { Spacer } from "src/components/Spacer";
 import { Text } from "src/components/Text";
 import * as S from "./styles";
 import { useNavigation } from "@react-navigation/native";
-import { H2 } from "src/components/H2";
 
 export function NewUser() {
   const navigation = useNavigation();
@@ -61,7 +59,6 @@ export function NewUser() {
           <Text caption color="primary">
             Invalid e-mail or password
           </Text>
-          <Caption color="primary">Invalid e-mail or password</Caption>
         </S.Wrapper>
       ) : (
         <S.Container />
@@ -74,7 +71,7 @@ export function NewUser() {
       </S.Wrapper>
       <Spacer flex={1} />
       {email === "" || password === "" ? (
-        <Button label="Register" disable={true} />
+        <Button label="Register" disabled={true} />
       ) : (
         <Button label="Register" onPress={registerFirebase} />
       )}

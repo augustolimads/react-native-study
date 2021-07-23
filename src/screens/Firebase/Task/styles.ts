@@ -23,11 +23,15 @@ export const Button = styled.TouchableOpacity`
 
 export const Card = styled.View`
   width: 100%;
+  margin-top: 16px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 16px;
+`;
+
+export const CardButton = styled.Pressable`
   padding: 8px 20px;
+  flex: 1;
 `;
 
 export const DeleteButton = styled.TouchableOpacity`

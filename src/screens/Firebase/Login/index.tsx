@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import firebase from "src/config/firebaseconfig";
 
 import { Button } from "src/components/Button";
-import { Caption } from "src/components/Caption";
 import { Container } from "src/components/Container";
-import { H1 } from "src/components/H1";
 import { Input } from "src/components/Input";
 import { Link } from "src/components/Link";
 import { Spacer } from "src/components/Spacer";
@@ -17,8 +15,11 @@ export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorLogin, setErrorLogin] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  function loginFirebase() {
+  async function loginFirebase() {
+    setLoading(true);
+
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -32,7 +33,9 @@ export function Login() {
         let errorCode = error.code;
         let errorMessage = error.message;
       })
-      .finally(() => {});
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   useEffect(() => {
@@ -41,6 +44,10 @@ export function Login() {
         navigation.navigate("Task", { idUser: user.uid });
       }
     });
+  }, []);
+
+  useEffect(() => {
+    setErrorLogin(false);
   }, []);
 
   return (
@@ -65,7 +72,7 @@ export function Login() {
       {errorLogin ? (
         <S.Wrapper>
           <Text caption color="primary">
-            Invalid e-mail or password
+            Invalid e-mail or password!!!
           </Text>
         </S.Wrapper>
       ) : (
@@ -80,9 +87,13 @@ export function Login() {
       </S.Wrapper>
       <Spacer flex={1} />
       {email === "" || password === "" ? (
-        <Button label="Login" disable={true} />
+        <Button
+          label="Login"
+          disable={true || loading === true}
+          isLoading={loading}
+        />
       ) : (
-        <Button label="Login" onPress={loginFirebase} />
+        <Button label="Login" onPress={loginFirebase} isLoading={loading} />
       )}
     </Container>
   );
