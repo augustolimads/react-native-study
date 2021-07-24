@@ -6,6 +6,7 @@ import { SettingsRoute } from "../SettingsRoute/SettingsRoute.route";
 import { theme } from "src/theme";
 import { ReduxScreen } from "src/screens/ReduxScreen";
 import { FirebaseRoute } from "../FirebaseRoute";
+import { Map } from "src/screens/Map";
 
 const { Navigator, Screen } = createDrawerNavigator();
 
@@ -25,10 +26,10 @@ export function MainDrawerRoute() {
         headerTintColor: theme.colors.primary,
       }}
     >
+      <Screen name="Maps" component={Map} />
       <Screen name="Firebase" component={FirebaseRoute} />
       <Screen name="Main" component={Main} />
       <Screen name="Redux" component={ReduxScreen} />
-      <Screen name="Maps" component={Main} />
       <Screen name="Tests" component={Main} />
       <Screen name="Configurations" component={SettingsRoute} />
     </Navigator>
