@@ -25,8 +25,8 @@ export const Card = styled.View`
 `;
 
 export const SearchContainer = styled.View`
-  width: ${Dimensions.get("window").width};
-  height: ${Dimensions.get("window").height};
+  width: ${Dimensions.get("screen").width};
+  height: ${Dimensions.get("screen").height};
   background-color: transparent;
   position: absolute;
   top: 0;
