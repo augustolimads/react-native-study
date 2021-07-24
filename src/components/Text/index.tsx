@@ -18,6 +18,7 @@ type TextProps = {
   h3?: boolean;
   h4?: boolean;
   caption?: boolean;
+  center?: boolean;
 };
 
 export function Text({
@@ -29,6 +30,7 @@ export function Text({
   h3,
   h4,
   caption,
+  center,
   ...rest
 }: TextProps) {
   return (
@@ -40,6 +42,7 @@ export function Text({
       h3={h3}
       h4={h4}
       caption={caption}
+      center={center}
       {...rest}
     >
       {children}

@@ -8,11 +8,18 @@ type ButtonProps = PressableProps & {
   label: string;
   isLoading?: boolean;
   color?: string;
+  expand?: boolean;
 };
 
-export function Button({ label, color, isLoading, ...rest }: ButtonProps) {
+export function Button({
+  label,
+  color,
+  isLoading,
+  expand,
+  ...rest
+}: ButtonProps) {
   return (
-    <S.Button disabled={isLoading} color={color} {...rest}>
+    <S.Button disabled={isLoading} color={color} expand={expand} {...rest}>
       {isLoading ? (
         <ActivityIndicator color={theme.colors.background} size={32} />
       ) : (

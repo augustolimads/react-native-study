@@ -44,8 +44,9 @@ export const Text = styled.Text.attrs(({ isBold, theme }: TextAttrs) => ({
     fontFamily: isBold ? theme.fontWeights.bold : theme.fontWeights.regular,
   },
 }))`
-  ${({ color, theme, h1, h2, h3, h4, caption }: TextProps) => css`
+  ${({ color, theme, h1, h2, h3, h4, caption, center }: TextProps) => css`
     color: ${theme.colors[color || "heading"]};
+    text-align: ${center ? "center" : "left"};
   `}
   ${({ h1, h2, h3, h4, caption }) => fontSize(h1, h2, h3, h4, caption)}
 `;
