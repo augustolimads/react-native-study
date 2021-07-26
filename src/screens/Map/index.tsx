@@ -30,11 +30,6 @@ const initialPosition = {
   ...precision,
 };
 
-const GirlfriendHouse = {
-  latitude: -8.264492281770094,
-  longitude: -35.99152572645448,
-};
-
 export function Map() {
   const ref = useRef();
   const mapEl = useRef(null); //direction red
@@ -62,11 +57,11 @@ export function Map() {
     getCurrentPosition();
   }
 
-  function racePrice(distance: number) {
+  function racePrice(distance: number): number {
     const factor = 2.85;
     const minValue = 3.52;
     const calc = distance * factor;
-    return calc < minValue ? minValue : calc.toFixed(2);
+    return Number(calc < minValue ? minValue : calc.toFixed(2));
   }
 
   useFocusEffect(
@@ -107,14 +102,14 @@ export function Map() {
             strokeWidth={3}
             strokeColor={theme.colors.secondary30}
             onReady={(result) => {
-              const distanceNumber = Number(result.distance);
+              const distanceNumber = Number(result.distance) as number;
               setDistance(distanceNumber);
               setPrice(racePrice(distanceNumber));
 
               mapEl.current.fitToCoordinates(result.coordinates, {
                 edgePadding: {
-                  top: 50,
-                  bottom: 50,
+                  top: 260,
+                  bottom: 260,
                   left: 50,
                   right: 50,
                 },
@@ -164,7 +159,7 @@ export function Map() {
       <S.Card>
         <Spacer flex={1} />
         <Text center color="highlight">
-          Distance: {distance}m
+          Distance: {String(distance)}m
         </Text>
         <Button label={`Pay R$ ${price}`} />
       </S.Card>

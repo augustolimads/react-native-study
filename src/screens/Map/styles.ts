@@ -17,16 +17,16 @@ export const Card = styled.View`
     padding: 20px;
     padding-bottom: 100px;
     background-color: ${theme.colors.secondary100};
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
     margin-top: -40px;
     width: 100%;
   `}
 `;
 
 export const SearchContainer = styled.View`
-  width: ${Dimensions.get("screen").width};
-  height: ${Dimensions.get("screen").height};
+  width: ${Dimensions.get("screen").width}px;
+  height: ${Dimensions.get("screen").height}px;
   background-color: transparent;
   position: absolute;
   top: 0;
