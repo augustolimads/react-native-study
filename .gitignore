@@ -8,7 +8,9 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-auth.json
+src/config/auth.json
+src/config/firebaseconfig.js
+src/config/ReactotronConfig.js
 
 # macOS
 .DS_Store

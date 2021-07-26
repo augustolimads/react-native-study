@@ -1,4 +1,6 @@
 import React from "react";
+import "src/config/ReactotronConfig";
+
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "src/theme";
