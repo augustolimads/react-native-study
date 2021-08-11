@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import firebase from "src/config/firebaseconfig";
+import { firebase } from "src/config/firebaseconfig";
 
 import { Button } from "src/components/Button";
 import { Container } from "src/components/Container";

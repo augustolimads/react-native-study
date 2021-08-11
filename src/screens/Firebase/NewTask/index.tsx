@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/core";
-import firebase from "src/config/firebaseconfig";
+import { firebase } from "src/config/firebaseconfig";
 import { Container } from "src/components/Container";
 import { Spacer } from "src/components/Spacer";
 import * as S from "./styles";

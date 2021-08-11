@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import firebase from "src/config/firebaseconfig";
+import { firebase } from "src/config/firebaseconfig";
 import { Container } from "src/components/Container";
 import { Text } from "src/components/Text";
-
 import * as S from "./styles";
 import { Button } from "src/components/Button";
 

@@ -13,4 +13,4 @@ var ConfigAuth = {
 // Initialize Firebase
 firebase.initializeApp(ConfigAuth);
 
-export default firebase;
+export { firebase };
