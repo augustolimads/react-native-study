@@ -72,7 +72,7 @@ export function Map() {
 
   useFocusEffect(
     useCallback(() => {
-      ref.current?.setAddressText("");
+      ref.current.setAddressText("");
     }, [])
   );
 
@@ -141,7 +141,6 @@ export function Map() {
           placeholder="Para onde vamos?"
           onPress={(data, details = null) => {
             // 'details' is provided when fetchDetails = true
-            console.log(data, details);
             if (details) {
               setDestination({
                 latitude: details.geometry.location.lat,

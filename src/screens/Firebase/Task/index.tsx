@@ -16,7 +16,7 @@ export function Task({ route }) {
     navigation.navigate("NewTask", { idUser });
   }
 
-  function deleteTask(id) {
+  function deleteTask(id: string) {
     database.collection(idUser).doc(id).delete();
   }
 
